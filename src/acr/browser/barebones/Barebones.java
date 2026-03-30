@@ -666,20 +666,9 @@ public class Barebones extends Activity implements OnLongClickListener,
 			// TODO Auto-generated constructor stub
 		}
 	    
-		@Override
-		public void flingScroll(int vx, int vy) {
-			// TODO Auto-generated method stub
-			super.flingScroll(vx, vy);
-		}
 
 
 
-		@Override
-		protected void onDraw(Canvas canvas) {
-			// TODO Auto-generated method stub
-			super.onDraw(canvas);
-			invalidate();
-		}
 
 		@Override
 		public boolean onTouchEvent(MotionEvent event) {
@@ -708,19 +697,6 @@ public class Barebones extends Activity implements OnLongClickListener,
 			return super.onTouchEvent(event);
 		}
 
-		@Override
-		protected void onOverScrolled(int scrollX, int scrollY,
-				boolean clampedX, boolean clampedY) {
-			// TODO Auto-generated method stub
-			super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
-		}
-
-		@Override
-		protected void onScrollChanged(int l, int t, int oldl, int oldt) {
-			// TODO Auto-generated method stub
-			
-			super.onScrollChanged(l, t, oldl, oldt);
-		}
 
 		
 
