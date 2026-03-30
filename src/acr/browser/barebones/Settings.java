@@ -62,7 +62,7 @@ public class Settings extends Activity {
 		agentPicker = settings.getInt("agentchoose", 1);
 		userAgent = settings.getString("agent", user);
 		java = settings.getBoolean("java", true);
-		homepage = settings.getString("home", "http://www.google.com");
+		homepage = settings.getString("home", "https://www.google.com");
 
 		agent.setText(userAgent);
 		edit = settings.edit();
@@ -114,7 +114,7 @@ public class Settings extends Activity {
 					home = h.getText().toString();
 					if(!home.contains("about:blank")&&!home.contains("about:home")){
 					if(home.contains("http://")==false&&home.contains("https://")==false){
-						home = "http://"+home;
+						home = "https://"+home;
 					}}
 					edit.putString("home", home);
 					edit.commit();
@@ -138,7 +138,7 @@ public class Settings extends Activity {
 					String home = h.getText().toString();
 					if(!h.getText().toString().contains("about:blank")&&!h.getText().toString().contains("about:home")){
 					if(h.getText().toString().contains("http://")==false&&h.getText().toString().contains("https://")==false){
-						home = "http://"+h.getText().toString();
+						home = "https://"+h.getText().toString();
 						}}
 					edit.putString("home", home);
 					edit.commit();
@@ -194,7 +194,7 @@ public class Settings extends Activity {
 				String home = h.getText().toString();
 				if(!h.getText().toString().contains("about:blank")&&!h.getText().toString().contains("about:home")){
 				if(h.getText().toString().contains("http://")==false&&h.getText().toString().contains("https://")==false){
-					home = "http://"+h.getText().toString();
+					home = "https://"+h.getText().toString();
 					}}
 				edit.putString("home", home);
 				edit.commit();
@@ -464,7 +464,7 @@ public void full(){
 		String home = h.getText().toString();
 		if(!h.getText().toString().contains("about:blank")&&!h.getText().toString().contains("about:home")){
 		if(h.getText().toString().contains("http://")==false&&h.getText().toString().contains("https://")==false){
-			home = "http://"+h.getText().toString();
+			home = "https://"+h.getText().toString();
 			}}
 		edit.putString("home", home);
 		edit.commit();

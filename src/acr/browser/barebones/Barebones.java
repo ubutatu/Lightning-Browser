@@ -221,7 +221,7 @@ public class Barebones extends Activity implements OnLongClickListener,
 		// desktop user agent
 		exitTab = getResources().getDrawable(R.drawable.stop); // user
 		// agent
-		homepage = settings.getString("home", "http://www.google.com"); // initializing
+		homepage = settings.getString("home", "https://www.google.com"); // initializing
 																		// the
 																		// stored
 																		// homepage
@@ -396,7 +396,7 @@ public class Barebones extends Activity implements OnLongClickListener,
 			background.addView(webFrame);
 			isBookmarkShowing = false;
 		}
-		homepage = settings.getString("home", "http://www.google.com");
+		homepage = settings.getString("home", "https://www.google.com");
 		allowLocation = settings.getBoolean("location", false);
 		final LinearLayout tabLayout = (LinearLayout) findViewById(R.id.tabLayout);
 		boolean isEmptyWebViewAvailable = false;
@@ -748,9 +748,9 @@ public class Barebones extends Activity implements OnLongClickListener,
 		@Override
 		public void onReceivedSslError(WebView view, SslErrorHandler handler,
 				SslError error) {
-			// TODO Auto-generated method stub
-			handler.proceed();
-			super.onReceivedSslError(view, handler, error);
+			// SECURITY: Do not ignore SSL certificate errors.
+			// By default, we should cancel the request to protect the user from MITM attacks.
+			handler.cancel();
 		}
 
 		@Override
@@ -1467,12 +1467,12 @@ public class Barebones extends Activity implements OnLongClickListener,
 		if (fixedQuery.contains(" ") || period == false) {
 			fixedQuery.replaceAll(" ", "+");
 			main[pageId]
-					.loadUrl("http://www.google.com/search?q=" + fixedQuery);
+					.loadUrl("https://www.google.com/search?q=" + fixedQuery);
 		} else if (fixedQuery.contains("http//") == false
 				&& fixedQuery.contains("https//") == false
 				&& fixedQuery.contains("http://") == false
 				&& fixedQuery.contains("https://") == false) {
-			fixedQuery = "http://" + fixedQuery;
+			fixedQuery = "https://" + fixedQuery;
 			main[pageId].loadUrl(fixedQuery);
 		} else {
 			fixedQuery = fixedQuery.replaceAll("http//", "http://");
